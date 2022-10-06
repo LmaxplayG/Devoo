@@ -1,0 +1,5 @@
+stripe>=4.0.2
+py-cord>=2.0.0
+python-dotenv>=0.20.0
+pyyaml>=6.0
+numpy>=1.21.6
