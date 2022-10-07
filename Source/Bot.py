@@ -9,10 +9,10 @@ import random
 import secrets
 import copy
 
-from Source.Commands import Register as RegisterCommands
-from Source.Config import *
-from Source.Events import Register as RegisterEvents
-from Source.Commands.About import About
+from Modules.Commands import Register as RegisterCommands
+from Modules.Config import Config
+from Modules.Events import Register as RegisterEvents
+from Modules.Commands.About import About
 
 import dotenv
 import pathlib
@@ -31,7 +31,7 @@ bot = commands.AutoShardedBot(intents=intents, description="Test", command_prefi
 RegisterCommands(bot)
 RegisterEvents(bot)
 
-if RELEASE == 'Release':
+if Config.RELEASE == 'Release':
     bot.run(dotenv.get_key(pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN"))
 else:
     bot.run(dotenv.get_key(pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN_DEV"))

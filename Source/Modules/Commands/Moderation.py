@@ -2,8 +2,8 @@ import datetime
 import discord
 from discord.ext import commands
 import copy
-from Source.Config import Config
-from Source.Shared import RequireMod
+from Modules.Config import Config, Embed
+from Modules.Shared import RequireMod
 
 class Moderation(commands.Cog):
     @commands.slash_command(description="Kicks a user from the server")
@@ -12,14 +12,14 @@ class Moderation(commands.Cog):
         if req:
             return
         if member.bot:
-            await ctx.respond(embed=Config.EMBED_ERROR_CANNOT_KICK_BOT, ephemeral=True)
+            await ctx.respond(embed=Embed.ERROR_CANNOT_KICK_BOT, ephemeral=True)
             return
         if ctx.author.top_role.position < member.top_role.position:
-            embed = copy.copy(Config.EMBED_ROLE_ABOVE)
+            embed = copy.copy(Embed.ROLE_ABOVE)
             embed.description = embed.description.replace(
                 '{USERNAME}', member.name)
             await ctx.respond(embed=embed, ephemeral=True)
-        embed = copy.copy(Config.EMBED_MEMBER_KICK_DM)
+        embed = copy.copy(Embed.MEMBER_KICK_DM)
         embed.title = embed.title.replace(
             '{SERVERNAME}', ctx.guild.name).replace('{REASON}', reason)
         embed.description = embed.description.replace(
@@ -31,11 +31,11 @@ class Moderation(commands.Cog):
         try:
             await member.kick(reason=reason)
         except:
-            embed = copy.copy(Config.EMBED_ERROR_KICK)
+            embed = copy.copy(Embed.ERROR_KICK)
             embed.description = embed.description.replace('{USERNAME}', member)
             await ctx.respond(embed=embed, ephemeral=True)
             return
-        embed = copy.copy(Config.EMBED_MEMBER_KICK)
+        embed = copy.copy(Embed.MEMBER_KICK)
         embed.description = embed.description.replace(
             '{MEMBER}', f"{member.name}#{member.discriminator}").replace('{REASON}', reason)
         await ctx.respond(embed=embed, ephemeral=True)
@@ -46,14 +46,14 @@ class Moderation(commands.Cog):
         if req:
             return
         if member.bot:
-            await ctx.respond(embed=Config.EMBED_ERROR_CANNOT_BAN_BOT, ephemeral=True)
+            await ctx.respond(embed=Embed.ERROR_CANNOT_BAN_BOT, ephemeral=True)
             return
         if ctx.author.top_role.position < member.top_role.position:
-            embed = copy.copy(Config.EMBED_ROLE_ABOVE)
+            embed = copy.copy(Embed.ROLE_ABOVE)
             embed.description = embed.description.replace(
                 '{USERNAME}', member.name)
             await ctx.respond(embed=embed, ephemeral=True)
-        embed = copy.copy(Config.EMBED_MEMBER_BAN_DM)
+        embed = copy.copy(Embed.MEMBER_BAN_DM)
         embed.title = embed.title.replace(
             '{SERVERNAME}', ctx.guild.name).replace('{REASON}', reason)
         embed.description = embed.description.replace(
@@ -65,11 +65,11 @@ class Moderation(commands.Cog):
         try:
             await member.ban(reason=reason)
         except:
-            embed = copy.copy(Config.EMBED_ERROR_BAN)
+            embed = copy.copy(Embed.ERROR_BAN)
             embed.description = embed.description.replace('{USERNAME}', member)
             await ctx.respond(embed=embed, ephemeral=True)
             return
-        embed = copy.copy(Config.EMBED_MEMBER_BAN)
+        embed = copy.copy(Embed.MEMBER_BAN)
         embed.description = embed.description.replace(
             '{MEMBER}', f"{member.name}#{member.discriminator}").replace('{REASON}', reason)
         await ctx.respond(embed=embed, ephemeral=True)
@@ -80,14 +80,14 @@ class Moderation(commands.Cog):
         if req:
             return
         if member.bot:
-            await ctx.respond(embed=Config.EMBED_ERROR_CANNOT_TIMEOUT_BOT, ephemeral=True)
+            await ctx.respond(embed=Embed.ERROR_CANNOT_TIMEOUT_BOT, ephemeral=True)
             return
         if ctx.author.top_role.position < member.top_role.position:
-            embed = copy.copy(Config.EMBED_ROLE_ABOVE)
+            embed = copy.copy(Embed.ROLE_ABOVE)
             embed.description = embed.description.replace(
                 '{USERNAME}', member.name)
             await ctx.respond(embed=embed, ephemeral=True)
-        embed = copy.copy(Config.EMBED_MEMBER_TIMEOUT_DM)
+        embed = copy.copy(Embed.MEMBER_TIMEOUT_DM)
         embed.title = embed.title.replace(
             '{SERVERNAME}', ctx.guild.name).replace('{REASON}', reason)
         embed.description = embed.description.replace('{SERVERNAME}', ctx.guild.name).replace('{REASON}', reason).replace(
@@ -99,11 +99,11 @@ class Moderation(commands.Cog):
         try:
             await member.timeout_for(reason=reason, duration=datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds))
         except:
-            embed = copy.copy(Config.EMBED_ERROR_TIMEOUT)
+            embed = copy.copy(Embed.ERROR_TIMEOUT)
             embed.description = embed.description.replace('{USERNAME}', member)
             await ctx.respond(embed=embed, ephemeral=True)
             return
-        embed = copy.copy(Config.EMBED_MEMBER_TIMEOUT)
+        embed = copy.copy(Embed.MEMBER_TIMEOUT)
         embed.description = embed.description.replace('{MEMBER}', f"{member.name}#{member.discriminator}").replace(
             '{REASON}', reason).replace('{TIME}', datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds).__str__())
         await ctx.respond(embed=embed, ephemeral=True)
