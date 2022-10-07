@@ -2,8 +2,8 @@ import datetime
 import discord
 from discord.ext import commands
 import copy
-from Source.Config import Config
-from Source.Shared import RequireMod
+from Modules.Config import Config
+from Modules.Shared import RequireMod
 
 class Moderation(commands.Cog):
     @commands.slash_command(description="Kicks a user from the server")

@@ -2,8 +2,8 @@ import datetime
 import discord
 from discord.ext import commands
 import copy
-import Source.Config as Config
-from Source.Shared import RequireMod
+from Modules.Config import Config
+from Modules.Shared import RequireMod
 
 class About(discord.Cog):
     @commands.slash_command(description="Info about the bot")

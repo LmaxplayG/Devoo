@@ -1,7 +1,7 @@
 from discord.ext import commands
 import copy
 import discord
-import Source.Config as Config
+from Modules.Config import Config
 
 async def on_command_error(ctx: commands.Context, error: commands.CommandError):
     if isinstance(error, commands.CommandNotFound):
