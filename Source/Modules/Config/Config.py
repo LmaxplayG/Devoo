@@ -20,7 +20,7 @@ from numpy import place
 RELEASE = 'Dev'
 # RELEASE = 'Release'
 
-VERSION = 'v1.0'
+VERSION = 'v1.0.1'
 
 if RELEASE == 'Release':
     LOGO        = discord.File(pathlib.Path(f'{pathlib.Path(__file__).parent.parent.parent}/Assets/Release/web/icon-512-maskable.png'))
