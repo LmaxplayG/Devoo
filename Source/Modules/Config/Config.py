@@ -18,7 +18,7 @@ import pathlib
 from numpy import place
 
 RELEASE = 'Dev'
-# RELEASE = 'Release'
+RELEASE = 'Release'
 
 VERSION = 'v1.0.1'
 
