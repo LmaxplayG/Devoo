@@ -1,1 +1,1 @@
-from .RequireMod import *
+from .RequireMod import RequireMod
