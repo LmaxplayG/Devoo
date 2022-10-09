@@ -100,6 +100,11 @@ Running on Python {version}
 Running on Pycord {discord.__version__}\
 """)
 
+SITE = discord.Embed(color=Color.PRIMARY, title=f"About Devoo {Config.VERSION}", description=f"""\
+You can find more about devoo here
+https://devoopers.net\
+""")
+
 ERROR = discord.Embed(
     color=Color.ERROR, title="An error occured", description="```py\n{ERR}\n```")
 
