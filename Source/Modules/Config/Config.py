@@ -2,17 +2,8 @@
 Configuration
 """
 
-import datetime
-from os import getcwd
-import os
 from random import random
-import sys
 import discord
-from discord.ext import commands
-from discord import ui
-import random
-import secrets
-import copy
 import pathlib
 
 from numpy import place

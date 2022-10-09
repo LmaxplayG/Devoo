@@ -1,7 +1,7 @@
 from discord.ext import commands
 import copy
 import discord
-from Modules.Config import Config, Embed, Color
+from Modules.Config import Embed, Color
 
 async def on_command_error(ctx: commands.Context, error: commands.CommandError):
     if isinstance(error, commands.CommandNotFound):

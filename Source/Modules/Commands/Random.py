@@ -2,8 +2,7 @@ import datetime
 import discord
 from discord.ext import commands
 import copy
-from Modules.Config import Config, Embed
-from Modules.Shared import RequireMod
+from Modules.Config import Embed
 import secrets
 
 class Random(commands.Cog):

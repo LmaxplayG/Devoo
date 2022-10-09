@@ -2,7 +2,7 @@ import datetime
 import discord
 from discord.ext import commands
 import copy
-from Modules.Config import Config, Embed
+from Modules.Config import Embed
 from Modules.Shared import RequireMod
 
 class Moderation(commands.Cog):
