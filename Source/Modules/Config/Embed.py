@@ -6,7 +6,7 @@ from . import Color, Config
 # Embeds
 REQUIRES_PREMIUM = discord.Embed(color=Color.ERROR, title="You don't have permission", description="""\
 This command requires premium!!!
-Buy at https://develoopers.net/premium\
+Buy at https://devoopers.net/premium\
 """)
 
 
@@ -68,24 +68,24 @@ ROLE_ABOVE = discord.Embed(color=Color.ERROR, title="Permission error", descript
 The user {USERNAME} has a role above you\
 """)
 
-ERROR_KICK = discord.Embed(color=Color.ERROR, title="Error", description="""\
+KICK_ERROR_GENERIC = discord.Embed(color=Color.ERROR, title="Error", description="""\
 The user {USERNAME} wasn't able to be kicked\
 """)
 
-ERROR_BAN = discord.Embed(color=Color.ERROR, title="Error", description="""\
+BAN_ERROR_GENERIC = discord.Embed(color=Color.ERROR, title="Error", description="""\
 The user {USERNAME} wasn't able to be banned\
 """)
 
-ERROR_TIMEOUT = discord.Embed(color=Color.ERROR, title="Error", description="""\
+TIMEOUT_ERROR_GENERIC = discord.Embed(color=Color.ERROR, title="Error", description="""\
 The user {USERNAME} wasn't able to be timed out\
 """)
 
 
-ERROR_CANNOT_KICK_BOT = discord.Embed(color=Color.ERROR, title="Error", description="""\
+CANNOT_KICK_BOT = discord.Embed(color=Color.ERROR, title="Error", description="""\
 I cannot kick bots\
 """)
 
-ERROR_CANNOT_BAN_BOT = discord.Embed(color=Color.ERROR, title="Error", description="""\
+CANNOT_BAN_BOT = discord.Embed(color=Color.ERROR, title="Error", description="""\
 I cannot ban bots\
 """)
 
@@ -93,17 +93,36 @@ ERROR_CANNOT_TIMEOUT_BOT = discord.Embed(color=Color.ERROR, title="Error", descr
 I cannot timeout bots\
 """)
 
+PURGE = discord.Embed(color=Color.PRIMARY, title="Purged messages", description="""\
+Purged {AMOUNT} messages\
+""")
+
+PURGE_MAX_AMOUNT = discord.Embed(color=Color.ERROR, title="Error", description="""\
+I cannot purge more than 100 messages\
+""")
+
 
 ABOUT = discord.Embed(color=Color.PRIMARY, title=f"About Devoo {Config.VERSION}", description=f"""\
-**Devoo** {Config.VERSION}
+**Devoo** {Config.VERSION} {Config.RELEASE}
 Running on Python {version}
 Running on Pycord {discord.__version__}\
 """)
 
 SITE = discord.Embed(color=Color.PRIMARY, title=f"About Devoo {Config.VERSION}", description=f"""\
-You can find more about devoo here
+You can find more about Devoo here
 https://devoopers.net\
 """)
+
+SOURCE = discord.Embed(color=Color.PRIMARY, title=f"Devoo {Config.VERSION} Source", description=f"""\
+You can find the source code for Devoo here
+https://github.com/LmaxplayG/Devoo\
+""")
+
+SUPPORT = discord.Embed(color=Color.PRIMARY, title=f"Devoo {Config.VERSION} Support", description=f"""\
+You can find the support server for Devoo here
+https://discord.gg/54kszbH3bz\
+""")
+
 
 ERROR = discord.Embed(
     color=Color.ERROR, title="An error occured", description="```py\n{ERR}\n```")
