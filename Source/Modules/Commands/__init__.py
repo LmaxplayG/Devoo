@@ -1,10 +1,9 @@
 from discord.ext import commands
 
-from .Moderation import Moderation
-from .Random import Random
-from .About import About
+from . import Moderation, About, Random, Fun
 
 def Register(bot: commands.Bot):
-    bot.add_cog(Moderation())
-    bot.add_cog(Random())
-    bot.add_cog(About())
+    bot.add_cog(Moderation.Moderation())
+    bot.add_cog(Random.Random())
+    bot.add_cog(About.About())
+    bot.add_cog(Fun.Fun())

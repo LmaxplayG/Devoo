@@ -1,7 +1,7 @@
 from discord.ext import commands
 import copy
 import discord
-from Modules.Config import Config, Embed, Color
+from Modules.Config import Embed, Color
 
 async def on_command_error(ctx: commands.Context, error: commands.CommandError):
     if isinstance(error, commands.CommandNotFound):
@@ -10,7 +10,7 @@ async def on_command_error(ctx: commands.Context, error: commands.CommandError):
         await ctx.send(embed=embed)
         return
     elif isinstance(error, commands.CommandInvokeError):
-        embed = copy.copy(Embed.ERROR)
+        embed = copy.deepcopy(Embed.ERROR)
         embed.description = embed.description.replace('{ERR}', str(error))
         await ctx.send(embed=embed)
         return
