@@ -44,7 +44,7 @@ $Container = docker run $ID -d
 docker rename $Container "Devoo"
 ```
 
-### Windows
+#### Windows
 
 Please use `pwsh` (Powershell 7 or higher) to run this command
 
@@ -64,3 +64,7 @@ Lmaxplay - [@LmaxplayG](https://github.com/LmaxplayG) - lmaxplay@lmaxplay.com
 Tom Bugada - [@yumithecat](https://github.com/yumithecat) - yumithecat@newdale.net
 
 Project Link: [Devoo](https://github.com/LmaxplayG/Devoo)
+
+### DISCLAIMER
+
+Parts of this codebase has been generated using copilot, all snippets used should be licensed with a public license, if not, contact us above and we will remove the offending code
