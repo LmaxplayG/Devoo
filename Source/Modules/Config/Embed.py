@@ -15,8 +15,6 @@ This requires moderator permissions\
 """)
 
 
-
-
 MEMBER_KICK = discord.Embed(color=Color.PRIMARY, title="Member kicked", description="""\
 Kicked {MEMBER} with the reason
 ```
@@ -32,7 +30,6 @@ You were kicked from {SERVERNAME} with the reason
 """)
 
 
-
 MEMBER_BAN = discord.Embed(color=Color.PRIMARY, title="Member kicked", description="""\
 Kicked {MEMBER} with the reason
 ```
@@ -46,7 +43,6 @@ You were kicked from {SERVERNAME} with the reason
 {REASON}
 ```\
 """)
-
 
 
 MEMBER_TIMEOUT = discord.Embed(color=Color.PRIMARY, title="Member timed out", description="""\
@@ -143,29 +139,61 @@ https://discord.gg/54kszbH3bz\
 """)
 
 
+DISCLAIMER_ANIMAL_PICS = "I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way"
+
 CAT = discord.Embed(color=Color.PRIMARY, title="Cat", description="""\
 Here is a cat for you\
 """)
 
-CAT.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+CAT.set_footer(text=DISCLAIMER_ANIMAL_PICS)
 
 DOG = discord.Embed(color=Color.PRIMARY, title="Dog", description="""\
 Here is a dog for you\
 """)
 
-DOG.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+DOG.set_footer(text=DISCLAIMER_ANIMAL_PICS)
 
 BIRD = discord.Embed(color=Color.PRIMARY, title="Bird", description="""\
 Here is a bird for you\
 """)
 
-BIRD.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+BIRD.set_footer(text=DISCLAIMER_ANIMAL_PICS)
 
 FOX = discord.Embed(color=Color.PRIMARY, title="Fox", description="""\
 Here is a fox for you\
 """)
 
-FOX.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+FOX.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+REDPANDA = discord.Embed(color=Color.PRIMARY, title="Red Panda", description="""\
+Here is a red panda for you\
+""")
+
+REDPANDA.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+KOALA = discord.Embed(color=Color.PRIMARY, title="Koala", description="""\
+Here is a koala for you\
+""")
+
+KOALA.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+KANGAROO = discord.Embed(color=Color.PRIMARY, title="Kangaroo", description="""\
+Here is a kangaroo for you\
+""")
+
+KANGAROO.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+PANDA = discord.Embed(color=Color.PRIMARY, title="Panda", description="""\
+Here is a panda for you\
+""")
+
+PANDA.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+RACCOON = discord.Embed(color=Color.PRIMARY, title="Raccoon", description="""\
+Here is a raccoon for you\
+""")
+
+RACCOON.set_footer(text=DISCLAIMER_ANIMAL_PICS)
 
 ERROR = discord.Embed(
     color=Color.ERROR, title="An error occured", description="```py\n{ERR}\n```")
@@ -195,4 +223,3 @@ RANDOM_COLOR = discord.Embed(
 Here is your random color: {COLOR}\
 """,
 )
- 
