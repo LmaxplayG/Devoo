@@ -6,7 +6,6 @@ Devooted to amazingness
 
 - [PyCord](https://github.com/Pycord-Development/pycord)
 - [Stripe](https://stripe.com/)
-- [PyYAML](https://pypi.org/project/PyYAML/)
 
 ## About The Project
 
