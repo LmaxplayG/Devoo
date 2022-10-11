@@ -63,6 +63,20 @@ You were timed out from {SERVERNAME} for {TIME} with the reason
 ```\
 """)
 
+MEMBER_MUTE = discord.Embed(color=Color.PRIMARY, title="Member muted", description="""\
+Muted {MEMBER} with the reason
+```
+{REASON}
+```\
+""")
+
+MEMBER_MUTE_DM = discord.Embed(color=Color.PRIMARY, title="You were muted on {SERVERNAME}", description="""\
+You were muted on {SERVERNAME} with the reason
+```
+{REASON}
+```\
+""")
+
 
 ROLE_ABOVE = discord.Embed(color=Color.ERROR, title="Permission error", description="""\
 The user {USERNAME} has a role above you\
@@ -101,6 +115,11 @@ PURGE_MAX_AMOUNT = discord.Embed(color=Color.ERROR, title="Error", description="
 I cannot purge more than 100 messages\
 """)
 
+MAGIC8BALL = discord.Embed(color=Color.PRIMARY, title="Magic 8 Ball", description="""\
+Question: {QUESTION}
+Answer: {ANSWER}\
+""")
+
 
 ABOUT = discord.Embed(color=Color.PRIMARY, title=f"About Devoo {Config.VERSION}", description=f"""\
 **Devoo** {Config.VERSION} {Config.RELEASE}
@@ -123,6 +142,30 @@ You can find the support server for Devoo here
 https://discord.gg/54kszbH3bz\
 """)
 
+
+CAT = discord.Embed(color=Color.PRIMARY, title="Cat", description="""\
+Here is a cat for you\
+""")
+
+CAT.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+
+DOG = discord.Embed(color=Color.PRIMARY, title="Dog", description="""\
+Here is a dog for you\
+""")
+
+DOG.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+
+BIRD = discord.Embed(color=Color.PRIMARY, title="Bird", description="""\
+Here is a bird for you\
+""")
+
+BIRD.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
+
+FOX = discord.Embed(color=Color.PRIMARY, title="Fox", description="""\
+Here is a fox for you\
+""")
+
+FOX.set_footer(text="I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way")
 
 ERROR = discord.Embed(
     color=Color.ERROR, title="An error occured", description="```py\n{ERR}\n```")
