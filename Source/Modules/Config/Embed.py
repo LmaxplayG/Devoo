@@ -215,7 +215,7 @@ Here is your identicon\
 IDENTICON.set_footer(text="Identicon of {USERNAME}")
 
 IDENTICON_NOT_FOUND = discord.Embed(color=Color.ERROR, title="Error", description="""\
-I couldn't find an identicon for {USERNAME}\
+I couldn't find an identicon for `{USERNAME}`\
 """)
 
 ERROR = discord.Embed(
