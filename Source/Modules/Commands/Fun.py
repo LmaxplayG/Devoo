@@ -129,3 +129,19 @@ class Fun(commands.Cog):
         embed.set_image(url=requests.get(
             "https://some-random-api.ml/img/racoon").json()["link"])
         await ctx.respond(embed=embed)
+
+    @commands.slash_command(description="Gets an identicon (github style) of a name")
+    async def identicon(self, ctx: discord.ApplicationContext, name: str):
+        await ctx.defer()
+        # We check if https://github.com/identicons/{name}.png exists
+        if requests.get(f"https://github.com/identicons/{name}.png").status_code == 200:
+            embed = copy.deepcopy(Embed.IDENTICON)
+            embed.set_image(url=f"https://github.com/identicons/{name}.png")
+            embed.set_footer(text=embed.footer.text.replace(
+                '{USERNAME}', name))
+            await ctx.respond(embed=embed)
+        else:
+            embed = copy.deepcopy(Embed.IDENTICON_NOT_FOUND)
+            embed.description = embed.description.replace(
+                '{USERNAME}', name)
+            await ctx.respond(embed=embed)

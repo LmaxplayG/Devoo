@@ -27,7 +27,11 @@ async def on_command_error(ctx: commands.Context, error: commands.CommandError):
     await ctx.message.add_reaction("⚠️")
 
 async def on_slash_command_error(ctx: discord.ApplicationContext, error: commands.CommandError):
-    await ctx.defer(ephemeral=True)
+    # Defer if we haven't already
+    try:
+        await ctx.defer(ephemeral=True)
+    except:
+        ""
     if isinstance(error, commands.NoPrivateMessage):
         embed = copy.deepcopy(Embed.UNAVAILABLE_IN_DMS)
         await ctx.respond(embed=embed, ephemeral=True)
@@ -42,10 +46,17 @@ async def on_slash_command_error(ctx: discord.ApplicationContext, error: command
         embed = copy.deepcopy(Embed.BOT_MISSING_PERMISSIONS)
         embed.description = embed.description.replace(
             '{PERMISSION}', error.missing_perms[0])
-        await ctx.respond(embed=embed, ephemeral=True)
+        # We check if we have already responded to the user, if not we respond, else we edit the response
+        if ctx.response.is_done():
+            await ctx.edit_response(embed=embed)
+        else:
+            await ctx.respond(embed=embed)
         return
     else :
         embed = copy.deepcopy(Embed.ERROR)
         embed.description = embed.description.replace('{ERR}', str(error))
-        await ctx.respond(embed=embed, ephemeral=True)
+        if ctx.response.is_done():
+            await ctx.response.edit_message(embed=embed)
+        else:
+            await ctx.respond(embed=embed)
         return

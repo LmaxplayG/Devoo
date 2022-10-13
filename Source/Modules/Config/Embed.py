@@ -148,7 +148,7 @@ I am missing permissions to do this\
 """)
 
 MEMBER_MISSING_PERMISSIONS = discord.Embed(color=Color.ERROR, title="Error", description="""\
-You need {PERMISSION} to do this\
+You need `{PERMISSION}` to do this\
 """)
 
 
@@ -207,6 +207,16 @@ Here is a raccoon for you\
 """)
 
 RACCOON.set_footer(text=DISCLAIMER_ANIMAL_PICS)
+
+IDENTICON = discord.Embed(color=Color.PRIMARY, title="Identicon", description="""\
+Here is your identicon\
+""")
+
+IDENTICON.set_footer(text="Identicon of {USERNAME}")
+
+IDENTICON_NOT_FOUND = discord.Embed(color=Color.ERROR, title="Error", description="""\
+I couldn't find an identicon for {USERNAME}\
+""")
 
 ERROR = discord.Embed(
     color=Color.ERROR, title="An unknown error occured", description="```py\n{ERR}\n```")
