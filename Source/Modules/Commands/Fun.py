@@ -71,8 +71,7 @@ class Fun(commands.Cog):
     async def bird(self, ctx: discord.ApplicationContext):
         await ctx.defer()
         embed = copy.deepcopy(Embed.BIRD)
-        # Request to https://some-random-api.ml/img/birb
-        # Returns a JSON object with a key "link" which contains the URL to the image
+
         embed.set_image(url=requests.get(
             "https://some-random-api.ml/img/birb").json()["link"])
         await ctx.respond(embed=embed)
