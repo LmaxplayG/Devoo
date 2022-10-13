@@ -139,9 +139,18 @@ https://discord.gg/54kszbH3bz\
 """)
 
 
-NO_DM = discord.Embed(color=Color.ERROR, title="Error", description="""\
+UNAVAILABLE_IN_DMS = discord.Embed(color=Color.ERROR, title="Error", description="""\
 This command cannot be used in DMs\
 """)
+
+BOT_MISSING_PERMISSIONS = discord.Embed(color=Color.ERROR, title="Error", description="""\
+I am missing permissions to do this\
+""")
+
+MEMBER_MISSING_PERMISSIONS = discord.Embed(color=Color.ERROR, title="Error", description="""\
+You need {PERMISSION} to do this\
+""")
+
 
 DISCLAIMER_ANIMAL_PICS = "I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way"
 
@@ -200,7 +209,7 @@ Here is a raccoon for you\
 RACCOON.set_footer(text=DISCLAIMER_ANIMAL_PICS)
 
 ERROR = discord.Embed(
-    color=Color.ERROR, title="An error occured", description="```py\n{ERR}\n```")
+    color=Color.ERROR, title="An unknown error occured", description="```py\n{ERR}\n```")
 
 RANDOM_ROLL = discord.Embed(
     color=Color.PRIMARY,
