@@ -25,3 +25,10 @@ async def on_command_error(ctx: commands.Context, error: commands.CommandError):
                           description=f"```py\n{str(error)}\n```")
     await ctx.send(embed=embed)
     await ctx.message.add_reaction("⚠️")
+
+async def on_slash_command_error(ctx: discord.ApplicationContext, error: commands.CommandError):
+    await ctx.defer(ephemeral=True)
+    if isinstance(error, commands.NoPrivateMessage):
+        embed = copy.deepcopy(Embed.NO_DM)
+        await ctx.respond(embed=embed, ephemeral=True)
+        return

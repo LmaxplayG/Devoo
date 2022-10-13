@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import copy
 from Modules.Config import Embed
-from Modules.Shared import RequireMod
 
 class About(discord.Cog):
     @commands.slash_command(description="Info about the bot")

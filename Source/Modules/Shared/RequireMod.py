@@ -1,5 +1,8 @@
+from warnings import warn, warn_explicit
 import discord
 from Modules.Config import Embed
+
+warn('Warn: Please use discord perm requirements instead of this function', DeprecationWarning, stacklevel=2)
 
 async def RequireMod(ctx: discord.ApplicationContext):
     """
@@ -11,7 +14,7 @@ async def RequireMod(ctx: discord.ApplicationContext):
     else:
         await ctx.respond(embed=Embed.REQUIRES_MOD, ephemeral=True)
         return False
-
+\
 async def RequireModNE(ctx: discord.ApplicationContext):
     """
     This function will return `True` IF the user is a mod, else it responds

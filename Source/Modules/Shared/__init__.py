@@ -1,5 +1,3 @@
 """
-This module
+Shared Module
 """
-
-from .RequireMod import RequireMod

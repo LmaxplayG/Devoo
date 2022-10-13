@@ -139,6 +139,10 @@ https://discord.gg/54kszbH3bz\
 """)
 
 
+NO_DM = discord.Embed(color=Color.ERROR, title="Error", description="""\
+This command cannot be used in DMs\
+""")
+
 DISCLAIMER_ANIMAL_PICS = "I do not own any of these images, they are from https://some-random-api.ml, Devoo is not affiliated with them in any way"
 
 CAT = discord.Embed(color=Color.PRIMARY, title="Cat", description="""\

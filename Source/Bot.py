@@ -12,7 +12,6 @@ import copy
 from Modules.Commands import Register as RegisterCommands
 from Modules.Config import Config
 from Modules.Events import Register as RegisterEvents
-from Modules.Commands.About import About
 
 import dotenv
 import pathlib
@@ -24,6 +23,8 @@ import pathlib
 
 
 intents = discord.Intents.all()
+
+# Random number generator
 
 bot = commands.AutoShardedBot(intents=intents, description="Test", command_prefix=random.random().__str__())
 

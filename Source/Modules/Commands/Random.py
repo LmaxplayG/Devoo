@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import copy
 from Modules.Config import Embed
-from Modules.Shared import RequireMod
 import secrets
 
 class Random(commands.Cog):
@@ -29,8 +28,9 @@ class Random(commands.Cog):
         await ctx.respond(embed=embed)
 
     @commands.slash_command(description="Gets a random member", name="random-member")
+    @commands.guild_only()
+    @commands.has_permissions(kick_members=True)
     async def randommember(self, ctx: discord.ApplicationContext):
-        if not await RequireMod(ctx): return
         await ctx.defer()
         roll = secrets.choice(ctx.guild.members)
         embed = copy.deepcopy(Embed.RANDOM_MEMBER)

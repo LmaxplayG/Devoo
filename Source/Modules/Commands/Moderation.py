@@ -7,6 +7,8 @@ from Modules.Shared import RequireMod
 
 class Moderation(commands.Cog):
     @commands.slash_command(description="Kicks a user from the server")
+    @commands.guild_only()
+    @commands.has_permissions(kick_members=True)
     async def kick(self, ctx: discord.ApplicationContext, member: discord.Member, reason: str = 'No reason specified'):
         await ctx.defer(ephemeral=True)
         if not await RequireMod(ctx): return
@@ -40,6 +42,8 @@ class Moderation(commands.Cog):
         await ctx.followup.send(embed=embed, ephemeral=True)
 
     @commands.slash_command(description="Bans a user from the server")
+    @commands.guild_only()
+    @commands.has_permissions(ban_members=True)
     async def ban(self, ctx: discord.ApplicationContext, member: discord.Member, reason: str = 'No reason specified'):
         await ctx.defer(ephemeral=True)
         req = await RequireMod(ctx)
@@ -75,6 +79,8 @@ class Moderation(commands.Cog):
         await ctx.followup.send(embed=embed, ephemeral=True)
 
     @commands.slash_command(description="Times out a user")
+    @commands.guild_only()
+    @commands.has_permissions(manage_messages=True)
     async def timeout(self, ctx: discord.ApplicationContext, member: discord.Member, seconds: int = 0, minutes: int = 0, hours: int = 0, days: int = 0, reason: str = 'No reason specified'):
         await ctx.defer(ephemeral=True)
         req = await RequireMod(ctx)
@@ -110,6 +116,8 @@ class Moderation(commands.Cog):
         await ctx.followup.send(embed=embed, ephemeral=True)
 
     @discord.slash_command(description="Purges N amount of messages from the channel")
+    @commands.guild_only()
+    @commands.has_permissions(manage_messages=True)
     async def purge(self, ctx: discord.ApplicationContext, amount: int):
         await ctx.defer(ephemeral=True)
         if not await RequireMod(ctx): return
@@ -122,6 +130,8 @@ class Moderation(commands.Cog):
         await ctx.send(embed=embed, ephemeral=True)
     
     @discord.slash_command(description="Mutes a user")
+    @commands.guild_only()
+    @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx: discord.ApplicationContext, member: discord.Member, reason: str = 'No reason specified'):
         await ctx.defer(ephemeral=True)
         if not await RequireMod(ctx): return

@@ -6,7 +6,6 @@ import random
 
 import requests
 from Modules.Config import Embed
-from Modules.Shared import RequireMod
 
 
 class Fun(commands.Cog):
