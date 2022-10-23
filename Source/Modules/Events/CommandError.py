@@ -1,49 +1,51 @@
-from discord.ext import commands
-import copy
-import discord
-from Modules.Config import Embed, Color
+import discord as Discord
+import discord.ext.commands as Commands
+import copy as Copy
 
-async def on_command_error(ctx: commands.Context, error: commands.CommandError):
-    if isinstance(error, commands.CommandNotFound):
+import Modules.Config.Color as Color
+import Modules.Config.Embed as Embed
+
+async def on_command_error(ctx: Commands.Context, error: Commands.CommandError):
+    if isinstance(error, Commands.CommandNotFound):
         # ,  description=f"Command  not found")
-        embed = discord.Embed(color=Color.ERROR, title="Command not found")
+        embed = Discord.Embed(color=Color.ERROR, title="Command not found")
         await ctx.send(embed=embed)
         return
-    elif isinstance(error, commands.CommandInvokeError):
-        embed = copy.deepcopy(Embed.ERROR)
+    elif isinstance(error, Commands.CommandInvokeError):
+        embed = Copy.deepcopy(Embed.ERROR)
         embed.description = embed.description.replace('{ERR}', str(error))
         await ctx.send(embed=embed)
         return
-    elif isinstance(error, commands.MissingRequiredArgument):
+    elif isinstance(error, Commands.MissingRequiredArgument):
         errStr = error.args[0].replace(
             ' is a required argument that is missing.', '')
-        embed = discord.Embed(color=Color.ERROR, title="A required argument is missing",
+        embed = Discord.Embed(color=Color.ERROR, title="A required argument is missing",
                               description=f"Please give a value for `{errStr}`")
         await ctx.send(embed=embed)
         return
-    embed = discord.Embed(color=Color.ERROR, title="An error occured",
+    embed = Discord.Embed(color=Color.ERROR, title="An error occured",
                           description=f"```py\n{str(error)}\n```")
     await ctx.send(embed=embed)
     await ctx.message.add_reaction("⚠️")
 
-async def on_slash_command_error(ctx: discord.ApplicationContext, error: commands.CommandError):
+async def on_slash_command_error(ctx: Discord.ApplicationContext, error: Commands.CommandError):
     # Defer if we haven't already
     try:
         await ctx.defer(ephemeral=True)
     except:
         ""
-    if isinstance(error, commands.NoPrivateMessage):
-        embed = copy.deepcopy(Embed.UNAVAILABLE_IN_DMS)
+    if isinstance(error, Commands.NoPrivateMessage):
+        embed = Copy.deepcopy(Embed.UNAVAILABLE_IN_DMS)
         await ctx.respond(embed=embed, ephemeral=True)
         return
-    elif isinstance(error, commands.MissingPermissions):
-        embed = copy.deepcopy(Embed.MEMBER_MISSING_PERMISSIONS)
+    elif isinstance(error, Commands.MissingPermissions):
+        embed = Copy.deepcopy(Embed.MEMBER_MISSING_PERMISSIONS)
         embed.description = embed.description.replace(
             '{PERMISSION}', error.missing_perms[0])
         await ctx.respond(embed=embed, ephemeral=True)
         return
-    elif isinstance(error, commands.BotMissingPermissions):
-        embed = copy.deepcopy(Embed.BOT_MISSING_PERMISSIONS)
+    elif isinstance(error, Commands.BotMissingPermissions):
+        embed = Copy.deepcopy(Embed.BOT_MISSING_PERMISSIONS)
         embed.description = embed.description.replace(
             '{PERMISSION}', error.missing_perms[0])
         # We check if we have already responded to the user, if not we respond, else we edit the response
@@ -53,7 +55,7 @@ async def on_slash_command_error(ctx: discord.ApplicationContext, error: command
             await ctx.respond(embed=embed)
         return
     else :
-        embed = copy.deepcopy(Embed.ERROR)
+        embed = Copy.deepcopy(Embed.ERROR)
         embed.description = embed.description.replace('{ERR}', str(error))
         if ctx.response.is_done():
             await ctx.response.edit_message(embed=embed)
