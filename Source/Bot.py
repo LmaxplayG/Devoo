@@ -18,7 +18,7 @@ BOT = Commands.AutoShardedBot(intents=intents, description="Test", command_prefi
 BOT.remove_command("help")
 
 RegisterCommands(BOT)
-RegisterEvents(BOT)
+RegisterEvents  (BOT)
 
 if VERSION.release == Release.STABLE:
     BOT.run(DotEnv.get_key(Pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN"))
