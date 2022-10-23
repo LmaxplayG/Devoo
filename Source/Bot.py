@@ -1,26 +1,26 @@
-from random import random
-import discord
-from discord.ext import commands
-import random
+import discord              as Discord
+import discord.ext.commands as Commands
+import random               as Random
+import dotenv               as DotEnv
+import pathlib              as Pathlib
 
 from Modules.Commands import Register as RegisterCommands
-from Modules.Config import Config
-from Modules.Events import Register as RegisterEvents
+from Modules.Events   import Register as RegisterEvents
 
-import dotenv
-import pathlib
+from Modules.Config.Config  import VERSION
+from Modules.Shared.Objects import Release
 
 
-intents = discord.Intents.all()
+intents = Discord.Intents.all()
 
-bot = commands.AutoShardedBot(intents=intents, description="Test", command_prefix=random.random().__str__())
+BOT = Commands.AutoShardedBot(intents=intents, description="Test", command_prefix=Random.random().__str__())
 
-bot.remove_command("help")
+BOT.remove_command("help")
 
-RegisterCommands(bot)
-RegisterEvents(bot)
+RegisterCommands(BOT)
+RegisterEvents(BOT)
 
-if Config.VERSION == 'Release':
-    bot.run(dotenv.get_key(pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN"))
+if VERSION.release == Release.STABLE:
+    BOT.run(DotEnv.get_key(Pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN"))
 else:
-    bot.run(dotenv.get_key(pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN_DEV"))
+    BOT.run(DotEnv.get_key(Pathlib.Path(__file__).parent.joinpath("./.env"), "TOKEN_DEV"))
