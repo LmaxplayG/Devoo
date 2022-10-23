@@ -10,7 +10,6 @@ from Modules.Events import Register as RegisterEvents
 import dotenv
 import pathlib
 
-#import stripe
 
 intents = discord.Intents.all()
 
