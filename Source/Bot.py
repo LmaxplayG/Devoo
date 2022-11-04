@@ -7,9 +7,8 @@ import pathlib              as Pathlib
 from Modules.Commands import Register as RegisterCommands
 from Modules.Events   import Register as RegisterEvents
 
-from Modules.Config.Config  import VERSION
-from Modules.Shared.Objects import Release
-
+from Modules.Shared.Objects   import Release
+from Modules.Shared.Constants import VERSION
 
 intents = Discord.Intents.all()
 
