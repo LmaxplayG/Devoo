@@ -21,7 +21,7 @@ class Random(Commands.Cog):
     async def randomcolor(self, ctx: Discord.ApplicationContext):
         await ctx.defer()
         roll = secrets.randbelow(0x1000000)
-        await ctx.respond(embed=RandomEmbeds.random_color_embed(roll))
+        await ctx.respond(embed=await RandomEmbeds.random_color_embed(roll))
 
     # @Commands.slash_command(description="Gets a random member", name="random-member")
     # @Commands.guild_only()
