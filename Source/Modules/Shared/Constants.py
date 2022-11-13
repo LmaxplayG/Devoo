@@ -2,7 +2,7 @@ import discord as Discord
 import pathlib as Pathlib
 from  .Objects import Release, Version
 
-VERSION = Version(1, 3, 0, Release.DEV)
+VERSION = Version(1, 3, 1, Release.STABLE)
 
 if VERSION.release == Release.STABLE:
     LOGO        = Discord.File(Pathlib.Path(f'{Pathlib.Path(__file__).parent.parent.parent}/Assets/Release/web/icon-512-maskable.png'))
