@@ -58,12 +58,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Lmaxplay - [@LmaxplayG](https://github.com/LmaxplayG) - lmaxplay@lmaxplay.com
+Lmaxplay - [@LmaxplayG](https://github.com/LmaxplayG) - lmaxplay@outlook.com
 
 Tom Bugada - [@yumithecat](https://github.com/yumithecat) - yumithecat@newdale.net
 
 Project Link: [Devoo](https://github.com/LmaxplayG/Devoo)
-
 ### DISCLAIMER
 
 Parts of this codebase has been generated using copilot, all snippets used should be licensed with a public license, if not, contact us above and we will remove the offending code
